@@ -1,65 +1,142 @@
-import Image from "next/image";
+'use client';
+
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, MapPin } from 'lucide-react';
+
+// --- IMPORTS KOMPONEN ---
+import SplashIntro from '@/components/SplashIntro';
+import Navbar from '@/components/Navbar';
+import FacultyGrid from '@/components/FacultyGrid';
+import CampusGallery from '@/components/CampusGallery';
+import WhyChooseUs from '@/components/WhyChooseUs';
+import Footer from '@/components/Footer'; // Import Footer baru (Watermark System)
 
 export default function Home() {
+  // State untuk mengontrol Intro (Maskot)
+  const [showIntro, setShowIntro] = useState(true);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* 1. INTRO SECTION (Overlay) */}
+      <AnimatePresence>
+        {showIntro && (
+          <SplashIntro onFinish={() => setShowIntro(false)} />
+        )}
+      </AnimatePresence>
+
+      {/* 2. MAIN WEBSITE CONTENT */}
+      <main className="min-h-screen bg-white relative overflow-hidden flex flex-col font-sans">
+        
+        {/* Dekorasi Background Grid Halus */}
+        <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
+             style={{ backgroundImage: 'radial-gradient(#003399 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {/* COMPONENT NAVBAR */}
+        <Navbar />
+
+        {/* 3. HERO SECTION */}
+        {/* pt-32 agar konten tidak tertutup Navbar yang fixed */}
+        <section id="home" className="container mx-auto px-6 pt-32 pb-10 flex flex-col lg:flex-row items-center relative z-10 min-h-[90vh]">
+          
+          {/* Kolom Kiri: Teks & Copywriting */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }} 
+            className="lg:w-1/2 space-y-6 text-center lg:text-left"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            {/* Badge Kecil */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-800 text-sm font-semibold border border-blue-100 mx-auto lg:mx-0">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+              </span>
+              Official Expo Campus 2025
+            </div>
+
+            <h1 className="text-5xl lg:text-7xl font-extrabold text-gray-900 leading-tight">
+              Universitas <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">
+                Negeri Malang
+              </span>
+            </h1>
+            
+            <p className="text-xl text-gray-600 max-w-lg mx-auto lg:mx-0 italic font-medium">
+              "Excellence in Learning Innovation"
+            </p>
+            
+            <p className="text-gray-500 max-w-md mx-auto lg:mx-0 leading-relaxed">
+              Temukan masa depanmu di sini. Jelajahi ragam fakultas unggulan dan fasilitas kelas dunia di Universitas Negeri Malang.
+            </p>
+
+            {/* Tombol Aksi */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+              
+              {/* Tombol Scroll ke Jurusan */}
+              <button 
+                onClick={() => document.getElementById('faculty')?.scrollIntoView({ behavior: 'smooth' })}
+                className="flex items-center justify-center gap-2 bg-blue-700 text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-blue-900/20 hover:-translate-y-1 transition-all"
+              >
+                Lihat Jurusan
+                <ArrowRight size={20} />
+              </button>
+
+              {/* Tombol Link ke Google Maps */}
+              <a 
+                href="https://goo.gl/maps/xG5vXfX8qX52" // Link Maps UM
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center justify-center gap-2 bg-white text-gray-700 border border-gray-200 px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all cursor-pointer"
+              >
+                <MapPin size={20} />
+                Lokasi Kampus
+              </a>
+
+            </div>
+          </motion.div>
+
+          {/* Kolom Kanan: Maskot Area */}
+          <div className="lg:w-1/2 h-[400px] lg:h-[550px] w-full relative mt-12 lg:mt-0 flex items-center justify-center">
+             
+             {/* Efek Blob di belakang Maskot */}
+             <div className="absolute w-[300px] h-[300px] bg-blue-100 rounded-full blur-3xl opacity-60 animate-pulse"></div>
+
+             <motion.div 
+               initial={{ opacity: 0, scale: 0.8 }}
+               animate={{ opacity: 1, scale: 1 }}
+               transition={{ duration: 0.8, delay: 0.8 }}
+               className="relative w-full h-full"
+             >
+               <Image
+                 src="/images/cakra.png" // Pastikan file maskot ada di public/images
+                 alt="Maskot UM"
+                 fill
+                 className="object-contain animate-bounce-slow drop-shadow-2xl"
+                 priority
+               />
+             </motion.div>
+          </div>
+
+        </section>
+
+        {/* 4. WHY CHOOSE US (STATISTIK) */}
+        <WhyChooseUs />
+
+        {/* 5. CAMPUS GALLERY (MARQUEE FOTO) */}
+        <CampusGallery />
+
+        {/* 6. FACULTY GRID SECTION */}
+        <div id="faculty">
+           <FacultyGrid />
         </div>
+
+        {/* 7. FOOTER BARU (DENGAN WATERMARK) */}
+        <Footer />
+
       </main>
-    </div>
+    </>
   );
 }
