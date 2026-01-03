@@ -64,7 +64,7 @@ const alumniData: AlumniBatch[] = [
         faculty: 'Fakultas Ilmu Sosial - UM',
         instagram: 'https://www.instagram.com/#/',
         image: '',
-      }
+      },
       {
         name: 'Hisyam Rizky Febrianto',
         major: 'S1 Pendidikan Pancasila',
