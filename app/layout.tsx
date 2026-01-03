@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: siteConfig.clientName || 'Expo Universitas Negeri Malang',
   description: 'Official Website Expo Campus 2025 - Informasi Jalur Masuk dan Program Studi.',
   icons: {
-    icon: '/favicon.ico', 
+    icon: '/favicon.webp', 
   },
 };
 

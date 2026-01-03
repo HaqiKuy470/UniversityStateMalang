@@ -38,38 +38,45 @@ const alumniData: AlumniBatch[] = [
         image: '',
       },
       {
-        name: 'Agus Nasikhul Ibad',
+        name: 'Agus Nasikhul Ibad (Nasik)',
         major: 'S1 Pendidikan Jasmani, Kesehatan Dan Rekreasi',
         faculty: 'Fakultas Ilmu Keolahragaan - UM',
         instagram: 'https://instagram.com/nasikhulibadd',
         image: '',
       },
       {
-        name: 'Farrel Favian',
-        major: 'S1 Tata Boga',
-        faculty: 'Fakultas EVokasi - UM',
+        name: 'Farrel Favian (Farrel)',
+        major: 'D4 Tata Boga',
+        faculty: 'Fakultas Vokasi - UM',
         instagram: 'https://www.instagram.com/farrel.fvn1/',
         image: '',
       },
       {
-        name: 'M Al-Ayubi',
+        name: 'M Al-Ayubi (Yubi)',
         major: 'S1 Pendidikan Pancasila',
         faculty: 'Fakultas Ilmu Sosial - UM',
         instagram: 'https://www.instagram.com/mmd_yubbi3/',
         image: '',
       },
       {
-        name: 'Lintang Hadistira',
+        name: 'Lintang Hadistira (Lintang)',
         major: 'S1 Pendidikan Pancasila',
         faculty: 'Fakultas Ilmu Sosial - UM',
         instagram: 'https://www.instagram.com/#/',
         image: '',
       },
       {
-        name: 'Hisyam Rizky Febrianto',
-        major: 'S1 Pendidikan Pancasila',
-        faculty: 'Fakultas Ilmu Sosial - UM',
+        name: 'Hisyam Rizky Febrianto (Hisyam)',
+        major: 'D4 Teknologi Rekayasa dan Pemeliharaan Bangunan Sipil',
+        faculty: 'Fakultas Vokasi - UM',
         instagram: 'https://www.instagram.com/hisyamrizkyy/',
+        image: '',
+      },
+      {
+        name: 'Azizah Putri Raflesiana (Azizah)',
+        major: 'S1 Pendidikan Bahasa Arab',
+        faculty: 'Fakultas Sastra - UM',
+        instagram: 'https://www.instagram.com/rflszah',
         image: '',
       }
     ]
@@ -93,7 +100,7 @@ export default function TeamPage() {
             Jejak Langkah <span className="text-blue-600">Alumni</span>
           </h1>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            Terima kasih kepada para kontributor hebat yang telah membangun Expo Campus ini.
+            Terima kasih atas antusiasme seluruh pengunjung yang telah memeriahkan stand Universitas Negeri Malang. <span className="italic">-Panitia Stand UM</span>
           </p>
         </div>
 
