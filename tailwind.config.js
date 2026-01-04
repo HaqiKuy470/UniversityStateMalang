@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,8 +9,8 @@ module.exports = {
     extend: {
       colors: {
         um: {
-          primary: '#003399', // Biru Khas UM
-          secondary: '#FFCC00', // Kuning/Gold
+          primary: '#003399',
+          secondary: '#FFCC00',
           dark: '#001F5C',
         }
       },

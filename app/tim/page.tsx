@@ -78,6 +78,20 @@ const alumniData: AlumniBatch[] = [
         faculty: 'Fakultas Sastra - UM',
         instagram: 'https://www.instagram.com/rflszah',
         image: '',
+      },
+      {
+        name: 'Talitha Zahwa Atha Salsabila (Talitha)',
+        major: 'S1 Ilmu Komunikasi',
+        faculty: 'Fakultas Ilmu Sosial - UM',
+        instagram: 'https://www.instagram.com/lithaaa.zhwa',
+        image: '/images/team/Talitha.jpeg',
+      },
+      {
+        name: 'Zeta Najwa Rahmania Fikrah (Zeta)',
+        major: 'S1 Pendidikan guru pendidikan anak usia dini',
+        faculty: 'Fakultas Ilmu Pendidikan - UM',
+        instagram: 'https://www.instagram.com/ztnrf10_',
+        image: '',
       }
     ]
   },

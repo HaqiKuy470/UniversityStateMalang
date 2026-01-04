@@ -3,8 +3,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Music, Pause, Play, SkipForward, Volume2 } from 'lucide-react';
 
-// === DAFTAR LAGU (PLAYLIST) ===
-// Ganti src dengan nama file mp3 kamu di folder public/music/
+
+
 const playlist = [
   {
     title: "XXL - Lany",
@@ -46,10 +46,10 @@ const playlist = [
 
 export default function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(0); // Mulai dari lagu pertama
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Fungsi Play/Pause
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -61,22 +61,22 @@ export default function MusicPlayer() {
     }
   };
 
-  // Fungsi Ganti ke Lagu Berikutnya
+
   const playNext = () => {
     let nextIndex = currentTrackIndex + 1;
-    // Kalau sudah lagu terakhir, balik ke awal (Loop Playlist)
+
     if (nextIndex >= playlist.length) {
       nextIndex = 0;
     }
     setCurrentTrackIndex(nextIndex);
-    setIsPlaying(true); // Otomatis mainkan
+    setIsPlaying(true);
   };
 
-  // Efek samping: Setiap track berubah, reset audio player & mainkan
+
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.pause();
-      audioRef.current.load(); // Load file baru
+      audioRef.current.load();
       if (isPlaying) {
         audioRef.current.play();
       }
@@ -85,38 +85,36 @@ export default function MusicPlayer() {
 
   return (
     <div className="fixed bottom-6 left-6 z-50 flex items-end gap-2 group">
-      
-      {/* Audio Element */}
-      <audio 
-        ref={audioRef} 
-        onEnded={playNext} // Kalau lagu habis, otomatis Next
+
+
+      <audio
+        ref={audioRef}
+        onEnded={playNext}
       >
         <source src={playlist[currentTrackIndex].src} type="audio/mpeg" />
       </audio>
 
-      {/* Tombol Utama (Play/Pause) */}
-      <button 
+
+      <button
         onClick={togglePlay}
-        className={`relative w-12 h-12 flex items-center justify-center rounded-full shadow-lg border-2 border-white transition-all duration-300 z-20 ${
-          isPlaying ? 'bg-blue-600 text-white' : 'bg-white text-gray-800 hover:scale-110'
-        }`}
+        className={`relative w-12 h-12 flex items-center justify-center rounded-full shadow-lg border-2 border-white transition-all duration-300 z-20 ${isPlaying ? 'bg-blue-600 text-white' : 'bg-white text-gray-800 hover:scale-110'
+          }`}
       >
-        {/* Animasi Ping kalau Play */}
+
         {isPlaying && (
-           <span className="absolute inset-0 rounded-full bg-blue-500 opacity-75 animate-ping"></span>
+          <span className="absolute inset-0 rounded-full bg-blue-500 opacity-75 animate-ping"></span>
         )}
-        
+
         <div className="relative z-10">
           {isPlaying ? <Pause size={20} /> : <Music size={20} />}
         </div>
       </button>
 
-      {/* Panel Kontrol (Muncul saat Hover) */}
-      <div className={`bg-white/90 backdrop-blur-sm p-3 rounded-2xl shadow-lg border border-gray-200 flex flex-col gap-2 transition-all duration-300 origin-bottom-left absolute left-14 bottom-0 w-48 ${
-        isPlaying ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-0 -translate-x-4 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-0 group-hover:pointer-events-auto'
-      }`}>
-        
-        {/* Info Lagu */}
+
+      <div className={`bg-white/90 backdrop-blur-sm p-3 rounded-2xl shadow-lg border border-gray-200 flex flex-col gap-2 transition-all duration-300 origin-bottom-left absolute left-14 bottom-0 w-48 ${isPlaying ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-0 -translate-x-4 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-0 group-hover:pointer-events-auto'
+        }`}>
+
+
         <div className="text-xs">
           <p className="text-gray-500 font-medium mb-1">Now Playing 🎵</p>
           <p className="text-blue-700 font-bold truncate">
@@ -124,8 +122,8 @@ export default function MusicPlayer() {
           </p>
         </div>
 
-        {/* Tombol Next */}
-        <button 
+
+        <button
           onClick={playNext}
           className="bg-gray-100 hover:bg-blue-100 text-gray-600 hover:text-blue-600 px-3 py-1.5 rounded-lg text-xs font-bold flex items-center justify-center gap-2 transition-colors w-full"
         >

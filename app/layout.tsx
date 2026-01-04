@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Script from 'next/script'; 
-import './globals.css'; 
-import { siteConfig } from '@/lib/config'; 
-// 1. Import sudah benar
+import Script from 'next/script';
+import './globals.css';
+import { siteConfig } from '@/lib/config';
+
 import MusicPlayer from '@/components/MusicPlayer';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -12,7 +12,12 @@ export const metadata: Metadata = {
   title: siteConfig.clientName || 'Expo Universitas Negeri Malang',
   description: 'Official Website Expo Campus 2025 - Informasi Jalur Masuk dan Program Studi.',
   icons: {
-    icon: '/favicon.webp', 
+    icon: [
+      {
+        url: '/images/logo-um.png',
+        href: '/images/logo-um.png',
+      },
+    ],
   },
 };
 
@@ -24,14 +29,14 @@ export default function RootLayout({
   return (
     <html lang="id" className="scroll-smooth">
       <body className={inter.className}>
-        
-        {/* Render Halaman Utama */}
+
+
         {children}
 
-        {/* 2. PASANG COMPONENT DISINI (Agar muncul di website) */}
+
         <MusicPlayer />
 
-        {/* === WATERMARK CONSOLE (Hidden Signature) === */}
+
         <Script id="watermark-console" strategy="afterInteractive">
           {`
             if (typeof window !== 'undefined') {

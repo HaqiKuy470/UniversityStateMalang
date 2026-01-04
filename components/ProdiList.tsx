@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation'; // Import buat baca URL
+import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Trophy, AlertCircle, Percent } from 'lucide-react';
 
-// === DATA LENGKAP (Sama seperti sebelumnya) ===
+
 const facultiesData = [
   {
     id: 'ft',
@@ -166,21 +166,21 @@ const facultiesData = [
 
 export default function ProdiList() {
   const [activeTab, setActiveTab] = useState(facultiesData[0].id);
-  const searchParams = useSearchParams(); // Hook buat baca URL
+  const searchParams = useSearchParams();
 
-  // Efek: Kalau ada ?fac=... di URL, ganti activeTab sesuai itu
+
   useEffect(() => {
     const facFromUrl = searchParams.get('fac');
     if (facFromUrl) {
-      // Cek apakah facFromUrl valid ada di data kita
+
       const isValid = facultiesData.some(f => f.id === facFromUrl);
       if (isValid) setActiveTab(facFromUrl);
     }
   }, [searchParams]);
 
-  // LOGIKA WARNA BADGE
+
   const getBadgeColor = (status: string) => {
-    switch(status) {
+    switch (status) {
       case 'Sangat Ketat': return 'bg-red-100 text-red-700 border-red-200';
       case 'Ketat': return 'bg-orange-100 text-orange-700 border-orange-200';
       case 'Sedang': return 'bg-blue-100 text-blue-700 border-blue-200';
@@ -192,17 +192,16 @@ export default function ProdiList() {
   return (
     <section className="py-20 bg-white" id="prodi-info">
       <div className="container mx-auto px-6">
-        
+
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-blue-900 mb-4">Data Keketatan & Daya Tampung</h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Cek seberapa ketat persaingan di jurusan impianmu. Data berdasarkan 
+            Cek seberapa ketat persaingan di jurusan impianmu. Data berdasarkan
             <span className="font-bold text-blue-600"> Seleksi Tahun 2024</span>.
           </p>
         </div>
 
-        {/* === TABS FAKULTAS (UPDATED: CENTERED & WRAPPED) === */}
-        {/* Menggunakan flex-wrap dan justify-center agar di tengah */}
+
         <div className="flex flex-wrap justify-center gap-3 pb-6 mb-6">
           {facultiesData.map((fac) => (
             <button
@@ -210,8 +209,8 @@ export default function ProdiList() {
               onClick={() => setActiveTab(fac.id)}
               className={`
                 px-6 py-3 rounded-full font-bold transition-all
-                ${activeTab === fac.id 
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30 scale-105' 
+                ${activeTab === fac.id
+                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30 scale-105'
                   : 'bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-700'}
               `}
             >
@@ -220,7 +219,7 @@ export default function ProdiList() {
           ))}
         </div>
 
-        {/* CONTENT AREA */}
+
         <div className="bg-gray-50 rounded-3xl p-6 md:p-10 min-h-[400px]">
           <AnimatePresence mode='wait'>
             {facultiesData.map((fac) => (
@@ -240,29 +239,29 @@ export default function ProdiList() {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {fac.prodi.map((item, idx) => (
                       <div key={idx} className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all group relative overflow-hidden flex flex-col">
-                        
+
                         <div className="flex justify-between items-start mb-4">
-                           <h4 className="font-bold text-gray-800 text-lg w-3/4 leading-snug">{item.name}</h4>
-                           <span className={`text-[10px] font-bold px-2 py-1 rounded-full border uppercase tracking-wider ${getBadgeColor(item.status)}`}>
+                          <h4 className="font-bold text-gray-800 text-lg w-3/4 leading-snug">{item.name}</h4>
+                          <span className={`text-[10px] font-bold px-2 py-1 rounded-full border uppercase tracking-wider ${getBadgeColor(item.status)}`}>
                             {item.status}
                           </span>
                         </div>
-                        
+
                         <div className="flex-grow"></div>
-                        
+
                         <div className="grid grid-cols-2 gap-3 mt-4">
                           <div className="bg-blue-50 p-3 rounded-lg flex flex-col items-center justify-center text-center">
                             <div className="flex items-center gap-1 text-blue-600 mb-1">
-                               <Percent size={14} />
-                               <span className="text-xs font-bold">Keketatan</span>
+                              <Percent size={14} />
+                              <span className="text-xs font-bold">Keketatan</span>
                             </div>
                             <span className="text-xl font-extrabold text-blue-900">{item.rate}</span>
                           </div>
 
                           <div className="bg-gray-100 p-3 rounded-lg flex flex-col items-center justify-center text-center">
                             <div className="flex items-center gap-1 text-gray-500 mb-1">
-                               <Users size={14} />
-                               <span className="text-xs font-bold">Daya Tampung</span>
+                              <Users size={14} />
+                              <span className="text-xs font-bold">Daya Tampung</span>
                             </div>
                             <span className="text-xl font-extrabold text-gray-700">{item.quota}</span>
                           </div>
