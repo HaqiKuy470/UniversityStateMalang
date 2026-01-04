@@ -62,7 +62,7 @@ const alumniData: AlumniBatch[] = [
         name: 'Lintang Hadistira (Lintang)',
         major: 'S1 Pendidikan Pancasila',
         faculty: 'Fakultas Ilmu Sosial - UM',
-        instagram: 'https://www.instagram.com/#/',
+        instagram: 'https://www.instagram.com/lntnngg__/',
         image: '',
       },
       {
@@ -91,6 +91,34 @@ const alumniData: AlumniBatch[] = [
         major: 'S1 Pendidikan guru pendidikan anak usia dini',
         faculty: 'Fakultas Ilmu Pendidikan - UM',
         instagram: 'https://www.instagram.com/ztnrf10_',
+        image: '',
+      },
+      {
+        name: 'Arina Sabilla Elhaq (Arina)',
+        major: 'S1 Akuntansi',
+        faculty: 'Fakultas Ekonomi dan Bisnis - UM',
+        instagram: 'https://www.instagram.com/arinasabilla38',
+        image: '',
+      },
+      {
+        name: 'Muhammad Satya Efendi(Satya)',
+        major: 'S1 Pendidikan Sosiologi',
+        faculty: 'Fakultas Ilmu Sosial - UM',
+        instagram: 'https://www.instagram.com/satya.efendi',
+        image: '',
+      },
+      {
+        name: 'Fahimatul Ilmiyyah Zn (Ila)',
+        major: 'S1 Pendidikan Ilmu Pengetahuan Alam',
+        faculty: 'Fakultas Ilmu Pengetahuan Alam dan Matematika - UM',
+        instagram: 'https://www.instagram.com/ilmiyahzn',
+        image: '',
+      },
+      {
+        name: 'Rosyidatul Maghfiroh Qolbi P (Firoh) ',
+        major: 'S1 Biologi',
+        faculty: 'Fakultas Ilmu Pengetahuan Alam dan Matematika - UM',
+        instagram: 'https://www.instagram.com/rosyidatulmqp_',
         image: '',
       }
     ]
