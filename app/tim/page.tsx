@@ -121,6 +121,13 @@ const alumniData: AlumniBatch[] = [
         instagram: 'https://www.instagram.com/rosyidatulmqp_',
         image: '',
       }
+      {
+        name: 'Siti Noorsyafiqah Azharina (Syafiqah) ',
+        major: 'S1 Pendidikan Guru Sekolah Dasar',
+        faculty: 'Fakultas Ilmu Pendidikan - UM',
+        instagram: 'https://www.instagram.com/sy.afi_',
+        image: '',
+      }
     ]
   },
 ];
