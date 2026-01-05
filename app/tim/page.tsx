@@ -120,7 +120,7 @@ const alumniData: AlumniBatch[] = [
         faculty: 'Fakultas Ilmu Pengetahuan Alam dan Matematika - UM',
         instagram: 'https://www.instagram.com/rosyidatulmqp_',
         image: '',
-      }
+      },
       {
         name: 'Siti Noorsyafiqah Azharina (Syafiqah) ',
         major: 'S1 Pendidikan Guru Sekolah Dasar',
