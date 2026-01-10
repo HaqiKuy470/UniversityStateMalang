@@ -127,6 +127,27 @@ const alumniData: AlumniBatch[] = [
         faculty: 'Fakultas Ilmu Pendidikan - UM',
         instagram: 'https://www.instagram.com/sy.afi_',
         image: '',
+      },
+      {
+        name: 'Elva Alfina Putri (elva) ',
+        major: 'S1 Hukum',
+        faculty: 'Fakultas Ilmu Sosial - UM',
+        instagram: 'https://www.instagram.com/elvaap.st',
+        image: '',
+      },
+      {
+        name: 'Farah Aliefvia (farah) ',
+        major: 'S1 Biologi',
+        faculty: 'Fakultas Ilmu Pengetahuan Alam dan Matematika- UM',
+        instagram: 'https://www.instagram.com/farahaliefvia',
+        image: '',
+      },
+      {
+        name: 'Pingkan Ayu Nur Laily ( Pingkan ) ',
+        major: 'D4 Manajemen Pemasaran',
+        faculty: 'Fakultas Vokasi - UM',
+        instagram: 'https://www.instagram.com/pingkanayyy',
+        image: '',
       }
     ]
   },
